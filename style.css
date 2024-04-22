@@ -26,13 +26,4 @@ body {
 .grid-square {
   width: 25px;
   height: 25px;
-  border: 1px solid red;
-}
-
-.loner {
-  width: 50px;
-  height: 50px;
-  border: 1px solid red;
-  display: flex;
-  flex-direction: column;
 }
