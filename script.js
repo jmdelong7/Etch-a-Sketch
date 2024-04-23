@@ -15,12 +15,20 @@ function makeGrid(squaresPerRow) {
       square.setAttribute("class", "grid-square");
       gridContainer.appendChild(square);
     }
-  }  
+  }
+
+  let numPixels = container.offsetWidth / squaresPerRow;
+  let squares = document.querySelectorAll("div.grid-square");
+  squares.forEach(sq => {
+    sq.style.width = `${numPixels}px`;
+    sq.style.height = `${numPixels}px`;
+  })
+
 }
 
 function inputPopup() {
-  let numSquares = prompt("Enter number of squares per side.");
-  makeGrid(numSquares);
+  let userSquares = prompt("Enter number of squares per side.");
+  makeGrid(userSquares);
   
   let squares = document.querySelectorAll("div.grid-square");
   squares.forEach(sq => {

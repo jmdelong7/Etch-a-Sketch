@@ -24,6 +24,8 @@ body {
   margin-top: 25px;
   border-radius: 3px;
   box-shadow: 0 0 2px rgb(165, 165, 165);
+  width: 500px;
+  height: 500px;
 }
 
 .grid-square {
