@@ -51,14 +51,19 @@ function showGridSize(squaresPerRow) {
 }
 
 function inputPopup() {
-  let userSquares = prompt("Squares per side (max 100)?");
+  let userSquares = Number(prompt("Squares per side (max 100)?", 50));
   
+  if (isNaN(userSquares)) {
+    alert("Numbers only you cheeky bastard!");
+    return;
+  }
+
   if (userSquares < 0) {
     alert("Try again! Must be a number greater than 0.");
-    return
+    return;
   } else if (userSquares >= 100) {
-    alert("Try again! Must be a number less than 100.")
-    return
+    alert("Try again! Must be a number less than 100.");
+    return;
   }
   
   makeGrid(userSquares);
