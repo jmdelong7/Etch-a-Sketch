@@ -8,11 +8,6 @@ function randomizeColor(target) {
   let rgb = "rgb(" + red + "," + green + "," + blue + ")";
 
   target.style.backgroundColor = rgb;
-  
-}
-
-function changeColor(target, color) {
-  target.style.backgroundColor = color;
 }
 
 function makeGrid(squaresPerRow) {
@@ -67,14 +62,18 @@ function inputPopup() {
   }
   
   makeGrid(userSquares);
-
   showGridSize(userSquares);
   
   let squares = document.querySelectorAll("div.grid-square");
   squares.forEach(sq => {
     sq.addEventListener("mouseover", function() {randomizeColor(sq)})
   })
+}
 
+function trackMouseovers(square) {
+  square.addEventListener("mouseover", () => {
+    
+  })
 }
 
 const btn = document.querySelector("button");
