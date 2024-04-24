@@ -1,5 +1,16 @@
 const container = document.querySelector(".container");
 
+function randomizeColor(target) {
+  let red = Math.floor(Math.random() * 255);
+  let green = Math.floor(Math.random() * 255);
+  let blue = Math.floor(Math.random() * 255);
+
+  let rgb = "rgb(" + red + "," + green + "," + blue + ")";
+
+  target.style.backgroundColor = rgb;
+  
+}
+
 function changeColor(target, color) {
   target.style.backgroundColor = color;
 }
@@ -56,7 +67,7 @@ function inputPopup() {
   
   let squares = document.querySelectorAll("div.grid-square");
   squares.forEach(sq => {
-    sq.addEventListener("mouseover", function() {changeColor(sq, "blue")})
+    sq.addEventListener("mouseover", function() {randomizeColor(sq)})
   })
 
 }
