@@ -21,7 +21,6 @@ body {
   border: 1px solid black;
   display: flex;
   align-self: center;
-  margin-top: 25px;
   border-radius: 3px;
   box-shadow: 0 0 2px rgb(165, 165, 165);
   width: 500px;
@@ -36,9 +35,22 @@ body {
 .popup-button {
   display: flex;
   align-self: center;
-  padding: 5px;
-  border-radius: 5px;
+  padding: 5px 25px;
+  border-radius: 2px;
   border: none;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.438);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.438);
   margin-top: 40px;
+}
+
+.popup-button:hover {
+  background-color: orange;
+}
+
+.grid-size {
+  width: 500px;
+  height: 25px;
+  display: flex;
+  align-self: center;
+  font-size: 12px;
+  align-items: end;
 }

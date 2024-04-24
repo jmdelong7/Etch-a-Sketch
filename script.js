@@ -5,6 +5,14 @@ function changeColor(target, color) {
 }
 
 function makeGrid(squaresPerRow) {
+  let gridContainers = document.querySelectorAll("div.grid-container");
+
+  if (gridContainers.length > 0) {
+    gridContainers.forEach(gC => {
+      gC.remove();
+    })
+  }
+
   for (i = 0; i < squaresPerRow; i++) {
     let gridContainer = document.createElement("div");
     gridContainer.setAttribute("class", "grid-container");
@@ -26,14 +34,30 @@ function makeGrid(squaresPerRow) {
 
 }
 
+function showGridSize(squaresPerRow) {
+  let sizeIndicator = document.querySelector("p.grid-size");
+  sizeIndicator.textContent = (`${squaresPerRow} x ${squaresPerRow}`);
+}
+
 function inputPopup() {
-  let userSquares = prompt("Enter number of squares per side.");
+  let userSquares = prompt("Squares per side (max 100)?");
+  
+  if (userSquares < 0) {
+    alert("Try again! Must be a number greater than 0.");
+    return
+  } else if (userSquares >= 100) {
+    alert("Try again! Must be a number less than 100.")
+    return
+  }
+  
   makeGrid(userSquares);
+
+  showGridSize(userSquares);
   
   let squares = document.querySelectorAll("div.grid-square");
   squares.forEach(sq => {
     sq.addEventListener("mouseover", function() {changeColor(sq, "blue")})
-})
+  })
 
 }
 
