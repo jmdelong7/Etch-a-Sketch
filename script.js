@@ -1,13 +1,33 @@
 const container = document.querySelector(".container");
 
 function randomizeColor(target) {
-  let red = Math.floor(Math.random() * 255);
-  let green = Math.floor(Math.random() * 255);
-  let blue = Math.floor(Math.random() * 255);
+  let currentBGColor = target.style.backgroundColor;
+  if (currentBGColor === "") {
+    let red = Math.floor(Math.random() * 255);
+    let green = Math.floor(Math.random() * 255);
+    let blue = Math.floor(Math.random() * 255);
 
-  let rgb = "rgb(" + red + "," + green + "," + blue + ")";
+    let rgb = "rgb(" + red + "," + green + "," + blue + ")";
 
-  target.style.backgroundColor = rgb;
+    target.style.backgroundColor = rgb;
+  } else {
+    let rgbNums =  currentBGColor.match(/\d+/g);
+    let rgbNumsStep = rgbNums.map((x) => Math.floor(x - 50));
+    
+    for (let i = 0; i < rgbNumsStep; i++) {
+      if (rgbNumsStep[i] < 0) {
+        rgbNumsStep[i] = 0;
+      }
+    }
+
+    let red = rgbNumsStep[0];
+    let blue = rgbNumsStep[1];
+    let green = rgbNumsStep[2];
+
+    let rgb = "rgb(" + red + "," + green + "," + blue + ")";
+
+    target.style.backgroundColor = rgb;
+  }
 }
 
 function makeGrid(squaresPerRow) {
@@ -67,12 +87,6 @@ function inputPopup() {
   let squares = document.querySelectorAll("div.grid-square");
   squares.forEach(sq => {
     sq.addEventListener("mouseover", function() {randomizeColor(sq)})
-  })
-}
-
-function trackMouseovers(square) {
-  square.addEventListener("mouseover", () => {
-    
   })
 }
 
